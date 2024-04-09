@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./style.css";
 import axios from "axios";
 import Modal from 'react-modal';
+import StarIcon from '@mui/icons-material/Star';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
@@ -15,9 +16,14 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    marginRight: '-50%',
+    // marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width:'300px'
+    width:'300px',
+    // border:"1px solid red",
+    // display:"flex"
+    // textAlign:"center"
+    // alignContent:"center"
+    margin:"auto"
   },
 };
 
@@ -96,9 +102,10 @@ const Card = (props) => {
       date.getMonth() + 1
     }-${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   };
+  
   return (
-    <div className="col-sm-12 col-lg-4 col-md-6">
-          <div className="card_container m-4 rounded" key={taskId}>
+    <div className="col-sm-12 col-md-6 col-lg-4">
+          <div className="card_container rounded" key={taskId}>
             <div className="d-flex justify-content-between rounded" style={{alignItems: "center"}}>
               <div
                 className="d-flex align-items-center"
@@ -135,8 +142,11 @@ const Card = (props) => {
                   fontWeight: 500,
                   lineHeight: "14.64px",
                   display: "flex",
+                  justifyContent:"center",
                   alignItems: "center",
                   background: "#F7F7F7",
+                  minWidth:"70px",
+                  cursor:"pointer"
                 }}
               >
                 {status}
@@ -149,14 +159,38 @@ const Card = (props) => {
                   marginLeft: "-.8rem",
                 }}
               />
-              <span
+               {!(status==='Completed') && <span className="d-flex align-items-center justify-content-center pe-1" style={{ width: "25%",
+                  color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                  background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
+                  fontSize: "12px",
+                  borderRadius: "20px",
+                  minWidth:"65px",}}> <AccessTimeFilledIcon style={{
+                    width: "14px",
+                    height: "14px",
+                    color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                    background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
+                    margin: "5px 2px",
+                }}/> {delay} min</span>}
+              {(status==='Completed') && <span className="d-flex align-items-center justify-content-center pe-1" style={{
+                  width: "14px",
+                  height: "14px",
+                  color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                  background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
+                  margin: "5px 2px",
+                }}>{rating} <StarIcon style={{ width: "14px",
+                height: "14px",
+                color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
+                margin: "5px 2px",}}/></span>}
+              {/* <span
                 className="d-flex align-items-center justify-content-end pe-1"
                 style={{
                   width: "25%",
                   color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
                   background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
                   fontSize: "12px",
-                  borderRadius: "20px"
+                  borderRadius: "20px",
+                  minWidth:"65px",
                 }}
               >
                 {" "}
@@ -166,11 +200,12 @@ const Card = (props) => {
                     height: "14px",
                     color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
                     background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
-                    margin: "5px 2px"
+                    margin: "5px 2px",
+                    
                   }}
                 />{" "}
                 {delay} min
-              </span>
+              </span> */}
             </div>
             <div className="d-flex mt-2 justify-content-between">
               <h3
@@ -263,7 +298,7 @@ const Card = (props) => {
               </span>
             </div>
             <div className="buttons_box">
-              <button
+             {!(status==='Completed') && <button
                 style={{
                   width: "100%",
                   background: parseInt(delay)<3 ? "#CC2610":"#5F69C7",
@@ -285,13 +320,15 @@ const Card = (props) => {
                   <CheckCircleIcon />
                 </span>{" "}
                 Notify Staff
-              </button>
+              </button>}
+              {status==='Completed' &&  <button style={styles.viewDetailBtnStyle}> View Details</button>}
             </div>
             <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
               style={customStyles}
               contentLabel="Change Status Modal"
+              
             >
               <form>
                 <div className="form-group col-md-6">
@@ -313,11 +350,12 @@ const Card = (props) => {
                 </div>
                 <button
                   type="button"
+                  style={{outline:"none", margin:"0.5rem", border:"0", borderRadius:"0.2rem",background:"#727272", color:"#fff", minWidth:"5rem"}}
                   onClick={() => handleSubmit(taskId, stat)}
                 >
                   Submit
                 </button>
-                <button type="button" onClick={closeModal}>
+                <button  style={{outline:"none", margin:"0.5rem", border:"0", borderRadius:"0.2rem", background:"#727272", color:"#fff", minWidth:"5rem"}} type="button" onClick={closeModal}>
                   Close
                 </button>
               </form>

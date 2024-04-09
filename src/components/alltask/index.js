@@ -10,6 +10,7 @@ import RepeatOnIcon from "@mui/icons-material/RepeatOn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Circle } from "../../helper";
 import  MainCard from "../card/card";
+import CustomLoader from "../loader/index";
 
 const customStyles = {
   content: {
@@ -59,7 +60,9 @@ const Card = () => {
  
 
   return (
+  
     <div className="row">
+    <div style={{position:"absolute", left:"50%", top:"50%"}}>{!tasks?.length && <CustomLoader/>}</div>
       {tasks.map((task) => {
         return  <MainCard
         taskId={task._id}
@@ -74,7 +77,6 @@ const Card = () => {
         itemRequest={task.itemRequest}
         />
       }
-      
       )}
     </div>
   );

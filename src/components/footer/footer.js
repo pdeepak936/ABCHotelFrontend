@@ -15,7 +15,9 @@ const Footer = () => {
             <p>Home</p>
           </Link>
         </li>
-        <li className="nav-item" style={{marginBottom: "40px"}}>
+        <li className="nav-item" style={{marginBottom: "40px", 
+    position: "absolute",
+    top: "-90%"}}>
           <Link to="/taskform" className="nav-link ">
             <button className="floating-button " >
               <h3>+</h3>

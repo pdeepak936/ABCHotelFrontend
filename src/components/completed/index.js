@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { gridStyle } from '../../helper';
 import  MainCard from "../card/card";
+import CustomLoader from "../loader/index";
 
 const Completed = () => {
   const [data, setData]=useState([]);
@@ -22,6 +23,7 @@ const Completed = () => {
   
 return (
   <div className="row">
+     <div style={{position:"absolute", left:"50%", top:"50%"}}>{!!(!data?.length) && <CustomLoader/>}</div>
     {!!data?.length &&  data.map((task) => {
       return  <MainCard
       taskId={task._id}

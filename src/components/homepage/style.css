@@ -1,5 +1,5 @@
 .main-page>.task-title{
-    font-size: 26px;
+    font-size: 1.6rem;
     padding: 1rem 0.5rem;
     /* color: #1111; */
     font-family: "Poppins", sans-serif;
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     margin: 0 10px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: #666565;
     cursor: pointer;

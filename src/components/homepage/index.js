@@ -25,8 +25,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col">
+      <div className="container-fluid">
+        {/* <div className="col"> */}
           <div className="d-flex">
             <div
               className="d-md-none d-sm-none d-lg-block col-lg-2 col-md-2 col-sm-0"
@@ -34,7 +34,7 @@ const Home = () => {
             >
               <Sidebar />
             </div>
-            <div className="main-page col-lg-9 col-md-9 col-sm-12" style={{ height: "90%" }}>
+            <div className="main-page" style={{ height: "90%", width:"100%" }}>
               <h2 className="task-title">Task of the day</h2>
               <nav className="all_task">
                 <NavLink className="all_task_tab " to="notaccepted">
@@ -69,15 +69,15 @@ const Home = () => {
                 <Route path="/form" element={<></>} />
               </Routes>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
       <div className="footer-container row  mb-5 bg-white">
-        <div className="col">
+        {/* <div className="col"> */}
           <div className=" d-md-none d-lg-none">
             <Footer />
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
