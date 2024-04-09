@@ -97,7 +97,7 @@ const Card = (props) => {
     }-${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   };
   return (
-    <div className="col-sm-12 col-lg-4">
+    <div className="col-sm-12 col-lg-4 col-md-6">
           <div className="card_container m-4 rounded" key={taskId}>
             <div className="d-flex justify-content-between rounded" style={{alignItems: "center"}}>
               <div

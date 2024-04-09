@@ -34,10 +34,10 @@ const Home = () => {
             >
               <Sidebar />
             </div>
-            <div className="main-page col-lg-9 col-md-9 col-sm-10">
+            <div className="main-page col-lg-9 col-md-9 col-sm-12" style={{ height: "90%" }}>
               <h2 className="task-title">Task of the day</h2>
               <nav className="all_task">
-                <NavLink className="all_task_tab" to="notaccepted">
+                <NavLink className="all_task_tab " to="notaccepted">
                   Not Accepted
                 </NavLink>
                 <Link className="all_task_tab" to="ongoing">
@@ -68,21 +68,11 @@ const Home = () => {
                 <Route path="/taskform" element={<Form />} />
                 <Route path="/form" element={<></>} />
               </Routes>
-
-              {/* <div>
-            <div className="">
-              <div className="card-wrapper">
-                <div className="row">
-                    <Card />
-                </div>
-              </div>
-            </div>
-          </div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="footer-container row  mb-5 bg-white">
         <div className="col">
           <div className=" d-md-none d-lg-none">
             <Footer />

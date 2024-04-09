@@ -12,7 +12,7 @@
       height: 3%;
       background-color: #ffffff; 
       border-top: 1px solid #cccccc; /* Example border */
-      padding: 10px 20px; /* Example padding */
+      padding: 10px 20px;
     }
     .bottom-navigation {
         display: flex;

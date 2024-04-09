@@ -7,24 +7,24 @@ import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 const Footer = () => {
 
   return (
-    <div className="footer-container">
-      <ul className="nav nav-pills nav-fill footercss ">
+    <div >
+      <ul className="d-flex justify-content-around nav ">
         <li className="nav-item">
           <Link to="/" className="nav-link">
             <HomeOutlinedIcon style={{ marginRight: "5px", marginLeft: "10px" }} />
             <p>Home</p>
           </Link>
         </li>
-        <li>
-          <Link to="/taskform" className="nav-link">
-            <button className="floating-button">
+        <li className="nav-item" style={{marginBottom: "40px"}}>
+          <Link to="/taskform" className="nav-link ">
+            <button className="floating-button " >
               <h3>+</h3>
             </button>
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item center">
           <Link to="/console" className="nav-link">
-            <ListAltOutlinedIcon />
+            <ListAltOutlinedIcon style={{ marginRight: "5px", marginLeft: "10px" }} />
             <p>Console</p>
           </Link>
         </li>
