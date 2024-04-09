@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <div >
-      <ul className="d-flex justify-content-around nav ">
+      <ul className="d-flex justify-content-around nav " style={{backgroundColor:"white"}}>
         <li className="nav-item">
           <Link to="/" className="nav-link">
             <HomeOutlinedIcon style={{ marginRight: "5px", marginLeft: "10px" }} />
